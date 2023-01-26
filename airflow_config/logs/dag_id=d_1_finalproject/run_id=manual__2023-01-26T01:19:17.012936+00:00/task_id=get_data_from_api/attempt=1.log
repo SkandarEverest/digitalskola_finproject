@@ -1,0 +1,57 @@
+[2023-01-26 01:19:18,381] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: d_1_finalproject.get_data_from_api manual__2023-01-26T01:19:17.012936+00:00 [queued]>
+[2023-01-26 01:19:18,388] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: d_1_finalproject.get_data_from_api manual__2023-01-26T01:19:17.012936+00:00 [queued]>
+[2023-01-26 01:19:18,389] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-26 01:19:18,389] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-01-26 01:19:18,390] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-26 01:19:18,398] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): get_data_from_api> on 2023-01-26 01:19:17.012936+00:00
+[2023-01-26 01:19:18,403] {standard_task_runner.py:52} INFO - Started process 669 to run task
+[2023-01-26 01:19:18,407] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'd_1_finalproject', 'get_data_from_api', 'manual__2023-01-26T01:19:17.012936+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/d_1_finalproject_dag.py', '--cfg-path', '/tmp/tmpogovp675', '--error-file', '/tmp/tmp8xnt4sps']
+[2023-01-26 01:19:18,421] {standard_task_runner.py:80} INFO - Job 30: Subtask get_data_from_api
+[2023-01-26 01:19:18,473] {task_command.py:369} INFO - Running <TaskInstance: d_1_finalproject.get_data_from_api manual__2023-01-26T01:19:17.012936+00:00 [running]> on host 7580358f394d
+[2023-01-26 01:19:18,529] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=d_1_finalproject
+AIRFLOW_CTX_TASK_ID=get_data_from_api
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-26T01:19:17.012936+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-26T01:19:17.012936+00:00
+[2023-01-26 01:19:18,708] {covid_scraper.py:12} INFO - GET DATA FROM API COMPLETED
+[2023-01-26 01:19:18,715] {covid_scraper.py:14} INFO - DATA FROM API TO DATAFRAME READY
+[2023-01-26 01:19:18,727] {logging_mixin.py:115} INFO - <class 'pandas.core.frame.DataFrame'>
+RangeIndex: 145 entries, 0 to 144
+Data columns (total 20 columns):
+ #   Column                    Non-Null Count  Dtype 
+---  ------                    --------------  ----- 
+ 0   CLOSECONTACT              145 non-null    int64 
+ 1   CONFIRMATION              145 non-null    int64 
+ 2   PROBABLE                  145 non-null    int64 
+ 3   SUSPECT                   145 non-null    int64 
+ 4   closecontact_dikarantina  145 non-null    int64 
+ 5   closecontact_discarded    145 non-null    int64 
+ 6   closecontact_meninggal    145 non-null    int64 
+ 7   confirmation_meninggal    145 non-null    int64 
+ 8   confirmation_sembuh       145 non-null    int64 
+ 9   kode_kab                  145 non-null    object
+ 10  kode_prov                 145 non-null    object
+ 11  nama_kab                  145 non-null    object
+ 12  nama_prov                 145 non-null    object
+ 13  probable_diisolasi        145 non-null    int64 
+ 14  probable_discarded        145 non-null    int64 
+ 15  probable_meninggal        145 non-null    int64 
+ 16  suspect_diisolasi         145 non-null    int64 
+ 17  suspect_discarded         145 non-null    int64 
+ 18  suspect_meninggal         145 non-null    int64 
+ 19  tanggal                   145 non-null    object
+dtypes: int64(15), object(5)
+memory usage: 22.8+ KB
+[2023-01-26 01:19:18,728] {logging_mixin.py:115} INFO - None
+[2023-01-26 01:19:18,811] {authentication.py:70} INFO - package: ***.connector.plugins
+[2023-01-26 01:19:18,812] {authentication.py:71} INFO - plugin_name: caching_sha2_password
+[2023-01-26 01:19:18,816] {authentication.py:75} INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+[2023-01-26 01:19:18,943] {logging_mixin.py:115} INFO - DATA INSERTED SUCCESSFULLY TO MYSQL
+[2023-01-26 01:19:18,945] {python.py:173} INFO - Done. Returned value was: None
+[2023-01-26 01:19:18,959] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=d_1_finalproject, task_id=get_data_from_api, execution_date=20230126T011917, start_date=20230126T011918, end_date=20230126T011918
+[2023-01-26 01:19:18,982] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-01-26 01:19:19,013] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

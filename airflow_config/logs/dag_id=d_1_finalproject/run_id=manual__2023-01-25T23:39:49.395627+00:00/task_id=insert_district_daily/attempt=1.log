@@ -1,0 +1,41 @@
+[2023-01-25 23:39:50,769] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: d_1_finalproject.insert_district_daily manual__2023-01-25T23:39:49.395627+00:00 [queued]>
+[2023-01-25 23:39:50,783] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: d_1_finalproject.insert_district_daily manual__2023-01-25T23:39:49.395627+00:00 [queued]>
+[2023-01-25 23:39:50,785] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-25 23:39:50,789] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-01-25 23:39:50,790] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-25 23:39:50,803] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): insert_district_daily> on 2023-01-25 23:39:49.395627+00:00
+[2023-01-25 23:39:50,809] {standard_task_runner.py:52} INFO - Started process 609 to run task
+[2023-01-25 23:39:50,840] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'd_1_finalproject', 'insert_district_daily', 'manual__2023-01-25T23:39:49.395627+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/d_1_finalproject_dag.py', '--cfg-path', '/tmp/tmpcet6ooda', '--error-file', '/tmp/tmphmww1enh']
+[2023-01-25 23:39:50,843] {standard_task_runner.py:80} INFO - Job 16: Subtask insert_district_daily
+[2023-01-25 23:39:50,960] {task_command.py:369} INFO - Running <TaskInstance: d_1_finalproject.insert_district_daily manual__2023-01-25T23:39:49.395627+00:00 [running]> on host 2b7f9a7f7f52
+[2023-01-25 23:39:51,087] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=d_1_finalproject
+AIRFLOW_CTX_TASK_ID=insert_district_daily
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-25T23:39:49.395627+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-25T23:39:49.395627+00:00
+[2023-01-25 23:39:51,108] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/d_1_finalproject_dag.py", line 88, in fun_insert_district_daily
+    port=get_conn_mysql.port
+  File "/opt/airflow/dags/modules/connector.py", line 9, in connect_mysql
+    "mysql+mysqlconnector://{}:{}@{}:{}/{}".format(user, password, host, port, db))
+  File "<string>", line 2, in create_engine
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/deprecations.py", line 298, in warned
+    return fn(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 548, in create_engine
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/dialects/mysql/mysqlconnector.py", line 129, in dbapi
+    from mysql import connector
+ModuleNotFoundError: No module named 'mysql'
+[2023-01-25 23:39:51,124] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=d_1_finalproject, task_id=insert_district_daily, execution_date=20230125T233949, start_date=20230125T233950, end_date=20230125T233951
+[2023-01-25 23:39:51,135] {standard_task_runner.py:97} ERROR - Failed to execute job 16 for task insert_district_daily (No module named 'mysql'; 609)
+[2023-01-25 23:39:51,156] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-01-25 23:39:51,192] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
